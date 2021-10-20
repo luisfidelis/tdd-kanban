@@ -19,7 +19,9 @@ export class Todo {
   }
 
   isValida() {
-    return !!this.titulo && !!this.descricao && (!this.data || !isNaN(this.data.getTime()));
+    const isDatePresent = !!this.data;
+    const isValidDate = this.data && !isNaN(this.data.getTime());
+    return !!this.titulo && !!this.descricao && (!isDatePresent || isValidDate);
   }
 
 }
