@@ -28,4 +28,11 @@ export class Todo {
     this.ativo = !this.ativo;
   }
 
+  alterarTitulo(novoTitulo: string) {
+    if(novoTitulo.length) {
+      this.titulo = novoTitulo;
+      return this.titulo;
+    }
+    throw new Error("titulo invalido");
+  }
 }

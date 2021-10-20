@@ -73,5 +73,34 @@ describe("class Todo", () => {
 
   })
 
+  describe("metodo alterarTitulo", () => {
+
+    it("Deve alterar o titulo, caso o novo titulo passado por parametro seja uma string com tamanho", () => {
+      const data = new Date();
+      const todo = new Todo("tarefa inicial", "Algum texto descritivo", false, data);
+      todo.alterarTitulo("novo titulo");
+      expect(todo.titulo).toEqual("novo titulo");
+    })
+
+    it("Deve lançar uma exceção caso o novo titulo passado por parametro seja uma string vazia", () => {
+      const data = new Date();
+      const todo = new Todo("tarefa inicial", "Algum texto descritivo", false, data);
+      const wrapperException = () => todo.alterarTitulo("");
+      expect(wrapperException).toThrow(Error);
+      expect(wrapperException).toThrow(new Error("titulo invalido"));
+      //expect(wrapperException).toThrowErrorMatchingSnapshot("titulo invalido");
+      // --- Nao é legal. Só para conhecimento
+      try {
+        todo.alterarTitulo("");
+      } catch(error) {
+        expect(error).toBeDefined();
+        expect(error.message).toBe("titulo invalido");
+        expect(error).toBeInstanceOf(Error);
+      }
+      // ---
+    })
+
+  })
+
 
 })
