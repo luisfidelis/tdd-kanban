@@ -18,4 +18,8 @@ export class Todo {
     }
   }
 
+  isValida() {
+    return !!this.titulo && !!this.descricao && (!this.data || !isNaN(this.data.getTime()));
+  }
+
 }
