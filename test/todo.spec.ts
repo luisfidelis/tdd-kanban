@@ -57,5 +57,21 @@ describe("class Todo", () => {
 
   })
 
+  describe("metodo toggleAtivo", () => {
+
+    it("Deve ativar uma tarefa, caso o estado anterior dela seja inativo", () => {
+      const todo = new Todo("Tarefa inicial", "Algum texto descritivo", false);
+      todo.toggleAtivo();
+      expect(todo.ativo).toBeTruthy();
+    })
+
+    it("Deve desativar uma tarefa, caso o estado anterior dela seja ativo", () => {
+      const todo = new Todo("Tarefa inicial", "Algum texto descritivo", true);
+      todo.toggleAtivo();
+      expect(todo.ativo).toBeFalsy();
+    })
+
+  })
+
 
 })
