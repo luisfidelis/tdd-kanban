@@ -18,4 +18,10 @@ export class Todo {
     }
   }
 
+  isValida() {
+    const isDatePresent = !!this.data;
+    const isValidDate = this.data && !isNaN(this.data.getTime());
+    return !!this.titulo && !!this.descricao && (!isDatePresent || isValidDate);
+  }
+
 }
