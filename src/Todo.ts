@@ -24,4 +24,8 @@ export class Todo {
     return !!this.titulo && !!this.descricao && (!isDatePresent || isValidDate);
   }
 
+  toggleAtivo() {
+    this.ativo = !this.ativo;
+  }
+
 }
