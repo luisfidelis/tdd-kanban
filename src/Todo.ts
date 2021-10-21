@@ -36,9 +36,9 @@ export class Todo {
     throw new Error("titulo invalido");
   }
 
-  alterarDescricao(novoDescricao: string) {
-    if(novoDescricao.length) {
-      this.descricao = novoDescricao;
+  alterarDescricao(novaDescricao: string) {
+    if(novaDescricao.length) {
+      this.descricao = novaDescricao;
       return this.descricao;
     }
     throw new Error("Descricao invalida");
