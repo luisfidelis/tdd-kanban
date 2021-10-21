@@ -44,4 +44,13 @@ export class Todo {
     throw new Error("Descricao invalida");
   }
 
+  isAtrasada() {
+    const today = new Date();
+    if(!this.data) {
+      return false;
+    } else {
+      return this.data.getTime() < today.getTime();
+    }
+  }
+
 }
