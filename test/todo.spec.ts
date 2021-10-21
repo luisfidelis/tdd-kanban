@@ -121,4 +121,27 @@ describe("class Todo", () => {
 
   })
 
+  describe("metodo isAtrasada", () => {
+    it("Deve retornar falso quando a tarefa não possui uma data", () => {
+      const todo = new Todo("Tarefa inicial", "Algum texto descritivo", true);
+      const respostaAtrasada = todo.isAtrasada();
+      expect(respostaAtrasada).toBeFalsy();
+    })
+
+    it("Deve retornar verdadeiro quando a tarefa possui uma data e é menor que a data atual", () => {
+      const date = new Date("2020-10-22");
+      const todo = new Todo("Tarefa inicial", "Algum texto descritivo", true, date);
+      const respostaAtrasada = todo.isAtrasada();
+      expect(respostaAtrasada).toBeTruthy();
+    })
+
+    it("Deve retornar falso quando a tarefa possui uma data e é maior ou igual a data atual", () => {
+      const date = new Date("2021-11-22");
+      const todo = new Todo("Tarefa inicial", "Algum texto descritivo", true, date);
+      const respostaAtrasada = todo.isAtrasada();
+      expect(respostaAtrasada).toBe(false);
+    })
+
+  })
+
 })
