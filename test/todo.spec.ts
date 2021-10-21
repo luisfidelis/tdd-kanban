@@ -102,5 +102,33 @@ describe("class Todo", () => {
 
   })
 
+  describe("metodo alterarDescricao", () => {
+
+    it("Deve alterar o Descricao, caso o nova Descricao passado por parametro seja uma string com tamanho", () => {
+      const data = new Date();
+      const todo = new Todo("tarefa inicial", "Algum texto descritivo", false, data);
+      todo.alterarDescricao("nova Descricao");
+      expect(todo.descricao).toEqual("nova Descricao");
+    })
+
+    it("Deve lançar uma exceção caso o nova Descricao passado por parametro seja uma string vazia", () => {
+      const data = new Date();
+      const todo = new Todo("tarefa inicial", "Algum texto descritivo", false, data);
+      const wrapperException = () => todo.alterarDescricao("");
+      expect(wrapperException).toThrow(Error);
+      expect(wrapperException).toThrow(new Error("Descricao invalida"));
+      //expect(wrapperException).toThrowErrorMatchingSnapshot("Descricao invalido");
+      // --- Nao é legal. Só para conhecimento
+      try {
+        todo.alterarDescricao("");
+      } catch(error) {
+        expect(error).toBeDefined();
+        expect(error.message).toBe("Descricao invalida");
+        expect(error).toBeInstanceOf(Error);
+      }
+      // ---
+    })
+
+  })
 
 })

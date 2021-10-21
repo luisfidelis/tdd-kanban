@@ -35,4 +35,13 @@ export class Todo {
     }
     throw new Error("titulo invalido");
   }
+
+  alterarDescricao(novoDescricao: string) {
+    if(novoDescricao.length) {
+      this.descricao = novoDescricao;
+      return this.descricao;
+    }
+    throw new Error("Descricao invalida");
+  }
+
 }
