@@ -117,16 +117,6 @@ describe("class Todo", () => {
       const wrapperException = () => todo.alterarDescricao("");
       expect(wrapperException).toThrow(Error);
       expect(wrapperException).toThrow(new Error("Descricao invalida"));
-      //expect(wrapperException).toThrowErrorMatchingSnapshot("Descricao invalido");
-      // --- Nao é legal. Só para conhecimento
-      try {
-        todo.alterarDescricao("");
-      } catch(error) {
-        expect(error).toBeDefined();
-        expect(error.message).toBe("Descricao invalida");
-        expect(error).toBeInstanceOf(Error);
-      }
-      // ---
     })
 
   })
